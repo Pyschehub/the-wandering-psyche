@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Wandering Psyche — Admin</title>
+  <title>Content Manager</title>
+  <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     CMS.init({
       config: {
@@ -16,129 +16,58 @@
         },
         media_folder: "images/uploads",
         public_folder: "/images/uploads",
-        site_url: "https://the-wandering-psyche.netlify.app",
-        display_url: "https://the-wandering-psyche.netlify.app",
-        logo_url: "https://the-wandering-psyche.netlify.app/favicon.ico",
         collections: [
           {
             name: "essays",
             label: "Essays",
-            label_singular: "Essay",
             folder: "content/essays",
             create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            slug: "{{slug}}",
             fields: [
               { label: "Title", name: "title", widget: "string" },
               { label: "Author", name: "author", widget: "string" },
-              { label: "Publication Date", name: "date", widget: "datetime", format: "MMMM YYYY" },
-              { label: "Cover Image", name: "image", widget: "image", required: false },
-              { label: "Category", name: "category", widget: "select", options: ["Psychology & Behavior", "Society & Culture", "Creative Psychology", "Motivation", "Relationships", "Cognitive Biases", "Identity", "Emotion", "Social Psychology"] },
-              { label: "Content", name: "body", widget: "markdown" },
-              { label: "References (APA)", name: "references", widget: "text", required: false }
-            ]
-          },
-          {
-            name: "editorials",
-            label: "Editorials",
-            label_singular: "Editorial",
-            folder: "content/editorials",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Author", name: "author", widget: "string" },
-              { label: "Date", name: "date", widget: "datetime", format: "MMMM YYYY" },
-              { label: "Cover Image", name: "image", widget: "image", required: false },
-              { label: "Content", name: "body", widget: "markdown" },
-              { label: "Psychological Concepts", name: "concepts", widget: "list", summary: "{{fields.concept}}", field: { label: "Concept", name: "concept", widget: "string" } },
-              { label: "References (APA)", name: "references", widget: "text", required: false }
+              { label: "Date", name: "date", widget: "datetime" },
+              { label: "Category", name: "category", widget: "select", options: ["Psychology & Behavior", "Society & Culture", "Creative Psychology", "Motivation", "Relationships", "Cognitive Biases"] },
+              { label: "Body", name: "body", widget: "markdown" }
             ]
           },
           {
             name: "book-reviews",
             label: "Book Reviews",
-            label_singular: "Book Review",
             folder: "content/book-reviews",
             create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            slug: "{{slug}}",
             fields: [
               { label: "Book Title", name: "title", widget: "string" },
               { label: "Book Author", name: "book_author", widget: "string" },
-              { label: "Reviewer", name: "reviewer", widget: "string" },
-              { label: "Cover Image", name: "image", widget: "image", required: false },
-              { label: "Summary", name: "summary", widget: "text" },
-              { label: "Psychological Themes", name: "themes", widget: "list", summary: "{{fields.theme}}", field: { label: "Theme", name: "theme", widget: "string" } },
-              { label: "Full Analysis", name: "body", widget: "markdown" },
               { label: "Rating", name: "rating", widget: "select", options: ["★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆"] },
-              { label: "References (APA)", name: "references", widget: "text", required: false }
+              { label: "Summary", name: "summary", widget: "text" },
+              { label: "Full Review", name: "body", widget: "markdown" }
             ]
           },
           {
             name: "research",
-            label: "Research Reports",
-            label_singular: "Research Report",
+            label: "Research",
             folder: "content/research",
             create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            slug: "{{slug}}",
             fields: [
-              { label: "Research Title", name: "title", widget: "string" },
+              { label: "Title", name: "title", widget: "string" },
               { label: "Research Question", name: "question", widget: "text" },
-              { label: "Background", name: "background", widget: "markdown" },
               { label: "Methodology", name: "methodology", widget: "markdown" },
-              { label: "Participants", name: "participants", widget: "string", required: false },
-              { label: "Results", name: "results", widget: "markdown" },
-              { label: "Charts/Graphs", name: "charts", widget: "image", required: false },
-              { label: "Discussion", name: "discussion", widget: "markdown" },
-              { label: "Limitations", name: "limitations", widget: "markdown" },
-              { label: "References (APA)", name: "references", widget: "text", required: false }
+              { label: "Body", name: "body", widget: "markdown" }
             ]
           },
           {
             name: "dear-mind",
             label: "Dear Mind",
-            label_singular: "Dear Mind Response",
             folder: "content/dear-mind",
             create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            slug: "{{slug}}",
             fields: [
-              { label: "Anonymous Question", name: "question", widget: "text" },
+              { label: "Question", name: "question", widget: "text" },
               { label: "Category", name: "category", widget: "select", options: ["Identity", "Relationships", "Motivation", "Academic Pressure", "Self-Perception", "Modern Life", "Future Anxiety"] },
-              { label: "Psychological Interpretation", name: "interpretation", widget: "markdown" },
-              { label: "Relevant Theories/Research", name: "theories", widget: "markdown", required: false },
-              { label: "Reflection", name: "reflection", widget: "markdown" },
-              { label: "References (APA)", name: "references", widget: "text", required: false }
-            ]
-          },
-          {
-            name: "settings",
-            label: "Site Settings",
-            files: [
-              {
-                label: "General Settings",
-                name: "general",
-                file: "content/settings/general.json",
-                fields: [
-                  { label: "Site Name", name: "site_name", widget: "string", default: "MINDSCAPE" },
-                  { label: "Mission Statement", name: "mission", widget: "text", default: "Exploring the psychology behind human experiences through research, essays, book reviews, and conversations." },
-                  { label: "Stats - Articles Published", name: "stat_articles", widget: "string", default: "0" },
-                  { label: "Stats - Research Projects", name: "stat_research", widget: "string", default: "0" },
-                  { label: "Stats - Reflections Shared", name: "stat_reflections", widget: "string", default: "0" },
-                  { label: "Stats - Readers Reached", name: "stat_readers", widget: "string", default: "0" }
-                ]
-              },
-              {
-                label: "Founders",
-                name: "founders",
-                file: "content/settings/founders.json",
-                fields: [
-                  { label: "Founder 1 Name", name: "founder1_name", widget: "string", default: "Your Name" },
-                  { label: "Founder 1 Role", name: "founder1_role", widget: "string", default: "Co-founder & Editor-in-Chief" },
-                  { label: "Founder 1 Bio", name: "founder1_bio", widget: "text", default: "Write your bio here." },
-                  { label: "Founder 2 Name", name: "founder2_name", widget: "string", default: "Your Co-founder" },
-                  { label: "Founder 2 Role", name: "founder2_role", widget: "string", default: "Co-founder & Research Lead" },
-                  { label: "Founder 2 Bio", name: "founder2_bio", widget: "text", default: "Write your co-founder's bio here." }
-                ]
-              }
+              { label: "Response", name: "body", widget: "markdown" }
             ]
           }
         ]
