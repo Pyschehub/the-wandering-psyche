@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editorial — MINDSCAPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--bg-warm-paper:#f5f0e8;--bg-card:#faf7f2;--bg-nav:#f8f5ef;
+--text-primary:#2b2b28;--text-secondary:#5c5a51;--text-muted:#8a877c;--text-on-dark:#faf7f2;
+--accent-sage:#7d8a76;--accent-lavender:#9b8fa0;--accent-terracotta:#b8a08a;
+--border-warm:#e5ded3;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-warm-paper);color:var(--text-primary);font-size:16px;line-height:1.7}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+nav{background:var(--bg-nav);border-bottom:1px solid var(--border-warm);position:sticky;top:0;z-index:1000;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600;letter-spacing:.12em;color:var(--text-primary)}
+.nav-logo span{color:var(--accent-sage)}
+.nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text-secondary);padding:.45rem .75rem;border-radius:6px;transition:background .2s,color .2s}
+.nav-links a:hover,.nav-links a.active{background:var(--border-warm);color:var(--text-primary)}
+.nav-hamburger{display:none;background:0 0;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;padding:.4rem}
+.nav-mobile-menu{display:none;background:var(--bg-nav);border-top:1px solid var(--border-warm);padding:1rem 2rem}
+.nav-mobile-menu.open{display:block}
+.nav-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.nav-mobile-menu a{display:block;font-size:.9rem;font-weight:500;color:var(--text-secondary);padding:.6rem .5rem;border-radius:6px}
+.page-header{text-align:center;padding:4rem 2rem 2rem}
+.page-header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin-bottom:.5rem}
+.page-subtitle{font-size:1rem;color:var(--text-muted);max-width:500px;margin:0 auto}
+.section{padding:0 2rem 4.5rem}
+.section-inner{max-width:800px;margin:0 auto}
+.editorial-card{background:var(--bg-card);border:1px solid var(--border-warm);border-radius:10px;padding:2rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(43,43,40,.06)}
+.editorial-card h3{font-size:1.5rem;margin-bottom:.5rem}
+.editorial-meta{font-size:.8rem;color:var(--text-muted);font-style:italic;margin-bottom:1rem}
+.editorial-card p{font-size:.9rem;color:var(--text-secondary);line-height:1.75}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.pill{font-size:.7rem;font-weight:600;padding:.3rem .8rem;border-radius:20px;background:rgba(155,143,160,.12);color:var(--accent-lavender)}
+footer{background:#1e1e1b;padding:3.5rem 2rem 2rem;color:rgba(250,247,242,.65);margin-top:2rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,247,242,.08);margin-bottom:1.75rem}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;color:var(--text-on-dark);margin-bottom:.75rem}
+.footer-desc{font-size:.85rem;line-height:1.7;color:rgba(250,247,242,.5)}
+.footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.88rem;color:rgba(250,247,242,.55)}
+.footer-links a:hover{color:var(--text-on-dark)}
+.footer-bottom{font-size:.78rem;color:rgba(250,247,242,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:block}.footer-top{grid-template-columns:1fr 1fr}.footer-top>*:first-child{grid-column:1/-1}}
+@media(max-width:640px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo">MIND<span>SCAPE</span></a>
+<ul class="nav-links">
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html" class="active">Editorial</a></li>
+<li><a href="book-reviews.html">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html">Dear Mind</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+<div class="nav-right"><button class="nav-hamburger"><i class="fa-solid fa-bars"></i></button></div>
+</div></nav>
+<div class="nav-mobile-menu"><ul><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li><li><a href="about.html">About</a></li></ul></div>
+
+<div class="page-header"><h1>Editorial</h1><p class="page-subtitle">Opinion and analysis at the intersection of psychology and modern life.</p></div>
+
+<section class="section"><div class="section-inner">
+<div class="editorial-card"><h3>Why Young Adults Feel Uncertain About the Future</h3><div class="editorial-meta">October 2024 · Maya Chen</div><p>In an era of unprecedented choice and constant comparison, the paralysis of decision-making has become a defining experience for many young adults. Drawing from Schwartz's paradox of choice and recent research on emerging adulthood, this editorial examines why "what do you want to do with your life?" has become such a loaded question — and how psychology can help us reframe it.</p><div class="pills"><span class="pill">Paradox of Choice</span><span class="pill">Emerging Adulthood</span><span class="pill">Decision Paralysis</span></div></div>
+<div class="editorial-card"><h3>The Psychology Behind Online Comparison</h3><div class="editorial-meta">September 2024 · Leila Nassir</div><p>Social media didn't invent comparison — but it industrialized it. This piece explores social comparison theory in the digital age, asking whether the curated lives we scroll through are making us more connected or more insecure. The answer, as psychology often reveals, is both.</p><div class="pills"><span class="pill">Social Comparison</span><span class="pill">Digital Psychology</span><span class="pill">Self-Esteem</span></div></div>
+<div class="editorial-card"><h3>Why Loneliness Exists in a Connected World</h3><div class="editorial-meta">August 2024 · Maya Chen</div><p>We have more ways to reach each other than ever before, yet rates of loneliness continue to rise. This editorial investigates the difference between being in contact and being known, pulling from Cacioppo's loneliness research and the psychology of belonging.</p><div class="pills"><span class="pill">Loneliness</span><span class="pill">Belonging</span><span class="pill">Social Connection</span></div></div>
+<div class="editorial-card"><h3>The Pressure to Constantly Achieve</h3><div class="editorial-meta">July 2024 · Leila Nassir</div><p>From academic metrics to career milestones, young adults are navigating a landscape where rest feels like failure. This piece examines the rise of achievement culture through the lens of self-determination theory and the quiet erosion of intrinsic motivation.</p><div class="pills"><span class="pill">Achievement Culture</span><span class="pill">Self-Determination Theory</span><span class="pill">Burnout</span></div></div>
+</div></section>
+
+<footer><div class="footer-inner"><div class="footer-top">
+<div><div class="footer-logo">MINDSCAPE</div><p class="footer-desc">A student psychology publication exploring human behavior and modern life.</p></div>
+<div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li></ul></div>
+<div><div class="footer-col-title">Publication</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="dear-mind.html">Submit a Question</a></li></ul></div>
+</div><div class="footer-bottom"><span>© 2024 MINDSCAPE</span><span><a href="#"><i class="fa-brands fa-instagram"></i></a> <a href="#"><i class="fa-brands fa-x-twitter"></i></a></span></div></div></footer>
+
+<script>
+const h=document.querySelector('.nav-hamburger'),m=document.querySelector('.nav-mobile-menu'),i=h.querySelector('i');
+h.addEventListener('click',()=>{const o=m.classList.toggle('open');i.className=o?'fa-solid fa-xmark':'fa-solid fa-bars'});
+m.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{m.classList.remove('open');i.className='fa-solid fa-bars'}));
+</script>
+</body>
+</html>

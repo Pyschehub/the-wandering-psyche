@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINDSCAPE — Student Psychology Publication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--bg-warm-paper:#f5f0e8;--bg-card:#faf7f2;--bg-nav:#f8f5ef;--bg-form:#fdfbf7;
+--text-primary:#2b2b28;--text-secondary:#5c5a51;--text-muted:#8a877c;--text-on-dark:#faf7f2;
+--accent-sage:#7d8a76;--accent-lavender:#9b8fa0;--accent-terracotta:#b8a08a;--accent-gold:#c4a97d;
+--section-book-review-bg:#5c5438;--section-dear-mind-bg:#7d9b5e;
+--section-book-review-card:#6b6346;--section-dear-mind-card:#8ba86d;
+--border-warm:#e5ded3;--border-on-dark:rgba(250,247,242,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-warm-paper);color:var(--text-primary);font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.2}
+img{max-width:100%}a{text-decoration:none;color:inherit}
+nav{background:var(--bg-nav);border-bottom:1px solid var(--border-warm);position:sticky;top:0;z-index:1000;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600;letter-spacing:.12em;color:var(--text-primary)}
+.nav-logo span{color:var(--accent-sage)}
+.nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text-secondary);padding:.45rem .75rem;border-radius:6px;transition:background .2s,color .2s}
+.nav-links a:hover,.nav-links a.active{background:var(--border-warm);color:var(--text-primary)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-search-btn{background:0 0;border:none;color:var(--text-muted);font-size:1rem;cursor:pointer;padding:.4rem .5rem;border-radius:6px;transition:color .2s,background .2s}
+.nav-search-btn:hover{color:var(--text-primary);background:var(--border-warm)}
+.nav-hamburger{display:none;background:0 0;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;padding:.4rem}
+.nav-mobile-menu{display:none;background:var(--bg-nav);border-top:1px solid var(--border-warm);padding:1rem 2rem}
+.nav-mobile-menu.open{display:block}
+.nav-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.nav-mobile-menu a{display:block;font-size:.9rem;font-weight:500;color:var(--text-secondary);padding:.6rem .5rem;border-radius:6px}
+.nav-mobile-menu a:hover{background:var(--border-warm);color:var(--text-primary)}
+.hero{background:var(--bg-warm-paper);padding:5rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(155,143,160,.12) 0,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.2em;color:var(--accent-sage);text-transform:uppercase;margin-bottom:1.25rem}
+.hero h1{font-size:clamp(3.5rem,10vw,7rem);font-weight:600;letter-spacing:.18em;color:var(--text-primary);margin-bottom:1.25rem;position:relative}
+.hero-tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-style:italic;color:var(--text-secondary);max-width:600px;margin:0 auto .75rem;line-height:1.6}
+.hero-sub{font-size:.88rem;color:var(--text-muted);max-width:520px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+.btn{font-family:'Inter',system-ui,sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:.75rem 1.75rem;border-radius:28px;border:2px solid transparent;cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:.5rem}
+.btn-dark{background:var(--text-primary);color:var(--text-on-dark);border-color:var(--text-primary)}
+.btn-dark:hover{background:#3d3d39;border-color:#3d3d39;transform:translateY(-1px);box-shadow:0 6px 20px rgba(43,43,40,.2)}
+.btn-outline-dark{background:0 0;color:var(--text-primary);border-color:var(--text-primary)}
+.btn-outline-dark:hover{background:var(--text-primary);color:var(--text-on-dark);transform:translateY(-1px)}
+.btn-sage{background:var(--accent-sage);color:var(--text-on-dark);border-color:var(--accent-sage)}
+.btn-sage:hover{background:#6a7664;border-color:#6a7664;transform:translateY(-1px);box-shadow:0 6px 20px rgba(125,138,118,.3)}
+.btn-outline-white{background:0 0;color:var(--text-on-dark);border-color:var(--text-on-dark)}
+.btn-outline-white:hover{background:rgba(250,247,242,.15);transform:translateY(-1px)}
+.btn-white-green{background:var(--text-on-dark);color:var(--section-dear-mind-bg);border-color:var(--text-on-dark)}
+.btn-white-green:hover{background:#edeade;transform:translateY(-1px)}
+.section{padding:4.5rem 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-heading{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:600;color:var(--text-primary);padding-left:1rem;border-left:4px solid var(--accent-sage);margin-bottom:.5rem}
+.section-heading-white{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:600;color:var(--text-on-dark);padding-left:1rem;border-left:4px solid rgba(250,247,242,.7);margin-bottom:.5rem}
+.section-subheading{font-size:.88rem;color:var(--text-muted);margin-bottom:2.75rem;padding-left:1.25rem}
+.section-subheading-white{font-size:.88rem;color:rgba(250,247,242,.7);margin-bottom:2.75rem;padding-left:1.25rem}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--border-warm);border-radius:10px;padding:1.75rem;box-shadow:0 2px 12px rgba(43,43,40,.06);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(43,43,40,.1)}
+.card-tag{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-lavender);margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
+.card-title{font-size:1.35rem;font-weight:600;color:var(--text-primary);margin-bottom:.65rem;line-height:1.3}
+.card-desc{font-size:.875rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.1rem}
+.card-meta{font-size:.78rem;color:var(--text-muted);font-style:italic;display:flex;align-items:center;gap:.5rem}
+.section-book-review{background:var(--section-book-review-bg);padding:4.5rem 2rem}
+.book-review-card{background:var(--section-book-review-card);border:1px solid var(--border-on-dark);border-radius:10px;padding:2.25rem;max-width:780px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.2)}
+.book-icon-placeholder{width:72px;height:90px;background:rgba(196,169,125,.25);border:2px solid rgba(196,169,125,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--accent-gold);margin-bottom:1.5rem}
+.tag-white{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.7);margin-bottom:.75rem}
+.book-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;color:var(--text-on-dark);margin-bottom:.35rem}
+.book-author{font-size:.9rem;color:rgba(250,247,242,.65);font-style:italic;margin-bottom:1.1rem}
+.book-desc{font-size:.9rem;color:rgba(250,247,242,.85);line-height:1.75;margin-bottom:1.4rem}
+.star-rating{display:flex;gap:.25rem;margin-bottom:1.4rem;color:var(--accent-gold);font-size:1rem}
+.themes-label{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.6);margin-bottom:.6rem}
+.themes-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem;list-style:none}
+.theme-pill{font-size:.75rem;font-weight:500;padding:.3rem .85rem;border-radius:20px;background:rgba(196,169,125,.2);border:1px solid rgba(196,169,125,.35);color:rgba(250,247,242,.85)}
+.research-card{background:var(--bg-card);border:1px solid var(--border-warm);border-radius:10px;padding:2rem;box-shadow:0 2px 12px rgba(43,43,40,.06);max-width:760px}
+.research-title{font-size:1.45rem;font-weight:600;color:var(--text-primary);margin-bottom:.6rem;line-height:1.3}
+.research-question{font-size:.9rem;font-style:italic;color:var(--text-secondary);border-left:3px solid var(--accent-terracotta);padding-left:1rem;margin-bottom:1rem;line-height:1.65}
+.research-method{font-size:.875rem;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.65}
+.badge-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.badge{font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .9rem;border-radius:20px}
+.badge-sage{background:rgba(125,138,118,.15);color:var(--accent-sage);border:1px solid rgba(125,138,118,.3)}
+.badge-lavender{background:rgba(155,143,160,.15);color:var(--accent-lavender);border:1px solid rgba(155,143,160,.3)}
+.badge-terracotta{background:rgba(184,160,138,.15);color:var(--accent-terracotta);border:1px solid rgba(184,160,138,.3)}
+.section-dear-mind{background:var(--section-dear-mind-bg);padding:4.5rem 2rem}
+.dear-mind-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem}
+.dear-mind-card{background:var(--section-dear-mind-card);border:1px solid var(--border-on-dark);border-radius:10px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.dear-mind-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.65);margin-bottom:1rem}
+.dm-blockquote{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-style:italic;color:var(--text-on-dark);border-left:3px solid rgba(250,247,242,.4);padding-left:1rem;margin-bottom:1.25rem;line-height:1.65}
+.dm-interpretation{font-size:.875rem;color:rgba(250,247,242,.88);line-height:1.75;margin-bottom:1rem}
+.dm-reflection{font-size:.875rem;color:rgba(250,247,242,.88);line-height:1.75;margin-bottom:1.1rem}
+.dm-citation{font-size:.75rem;color:rgba(250,247,242,.5);font-style:italic;line-height:1.5}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:820px;margin:0 auto}
+.founder-card{background:var(--bg-card);border:1px solid var(--border-warm);border-radius:10px;padding:2rem;box-shadow:0 2px 12px rgba(43,43,40,.06);text-align:center;transition:transform .25s}
+.founder-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(43,43,40,.1)}
+.founder-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1.1rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,rgba(155,143,160,.25),rgba(125,138,118,.2));border:2px solid var(--border-warm);color:var(--accent-lavender)}
+.founder-role{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-sage);margin-bottom:.4rem}
+.founder-name{font-size:1.3rem;font-weight:600;color:var(--text-primary);margin-bottom:.75rem}
+.founder-bio{font-size:.86rem;color:var(--text-secondary);line-height:1.7}
+.stats-bar{background:var(--text-primary);padding:3rem 2rem}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stat-number{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:600;color:var(--text-on-dark);line-height:1;margin-bottom:.4rem}
+.stat-number span{color:var(--accent-gold)}
+.stat-label{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.5)}
+footer{background:#1e1e1b;padding:3.5rem 2rem 2rem;color:rgba(250,247,242,.65)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,247,242,.08);margin-bottom:1.75rem}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;color:var(--text-on-dark);margin-bottom:.75rem}
+.footer-desc{font-size:.85rem;line-height:1.7;color:rgba(250,247,242,.5);max-width:280px}
+.footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.88rem;color:rgba(250,247,242,.55);transition:color .2s}
+.footer-links a:hover{color:var(--text-on-dark)}
+.footer-bottom{font-size:.78rem;color:rgba(250,247,242,.3);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.search-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(43,43,40,.95);z-index:2000;justify-content:center;align-items:flex-start;padding-top:8rem}
+.search-overlay.open{display:flex}
+.search-overlay-inner{width:90%;max-width:600px}
+.search-overlay input{width:100%;padding:1rem 1.5rem;font-size:1.2rem;border:none;border-radius:30px;background:var(--bg-form);color:var(--text-primary);font-family:'Inter',system-ui,sans-serif;outline:none}
+.search-overlay-close{position:absolute;top:2rem;right:2rem;background:0 0;border:none;color:var(--text-on-dark);font-size:1.5rem;cursor:pointer}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:block}.footer-top{grid-template-columns:1fr 1fr}.footer-top>*:first-child{grid-column:1/-1}.footer-desc{max-width:100%}.stats-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
+@media(max-width:640px){nav{padding:0 1rem}.hero{padding:3.5rem 1.25rem 3rem}.section{padding:3.5rem 1.25rem}.section-book-review{padding:3.5rem 1.25rem}.section-dear-mind{padding:3.5rem 1.25rem}.dear-mind-grid{grid-template-columns:1fr}.founders-grid{grid-template-columns:1fr}.cards-grid{grid-template-columns:1fr}.stats-inner{grid-template-columns:repeat(2,1fr)}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.hero-buttons{flex-direction:column;align-items:center}.btn{width:100%;max-width:280px;justify-content:center}.stats-bar{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-inner">
+<a href="index.html" class="nav-logo">MIND<span>SCAPE</span></a>
+<ul class="nav-links">
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html">Editorial</a></li>
+<li><a href="book-reviews.html">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html">Dear Mind</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+<div class="nav-right">
+<button class="nav-search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+<button class="nav-hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+</div></div>
+</nav>
+<div class="nav-mobile-menu"><ul>
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html">Editorial</a></li>
+<li><a href="book-reviews.html">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html">Dear Mind</a></li>
+<li><a href="about.html">About</a></li>
+</ul></div>
+<div class="search-overlay"><button class="search-overlay-close"><i class="fa-solid fa-xmark"></i></button><div class="search-overlay-inner"><input type="text" placeholder="Search articles, reviews, research..."></div></div>
+
+<section class="hero">
+<p class="hero-eyebrow"><i class="fa-solid fa-brain" style="margin-right:.4rem"></i>A Student Psychology Publication</p>
+<h1>MINDSCAPE</h1>
+<p class="hero-tagline">"Exploring the psychology behind human experiences through research, essays, book reviews, and conversations."</p>
+<p class="hero-sub">Written by psychology students, for curious minds. We examine behavior, identity, emotion, and society with evidence-based insight and honest reflection.</p>
+<div class="hero-buttons">
+<a href="essays.html" class="btn btn-dark"><i class="fa-solid fa-arrow-right"></i> Explore Articles</a>
+<a href="research.html" class="btn btn-outline-dark"><i class="fa-solid fa-flask"></i> View Research</a>
+<a href="dear-mind.html" class="btn btn-sage"><i class="fa-regular fa-envelope"></i> Submit a Question</a>
+</div></section>
+
+<section class="section"><div class="section-inner">
+<h2 class="section-heading">Featured Articles</h2>
+<p class="section-subheading">Our editors' picks — thoughtful, researched, and worth your time.</p>
+<div class="cards-grid">
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Identity</div><h3 class="card-title">The Fragile Architecture of Self-Concept</h3><p class="card-desc">How do we build a sense of who we are — and why does it feel so vulnerable? This essay explores social comparison and identity formation in young adulthood.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> October 2024 · Maya Chen</div></article>
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Social Psychology</div><h3 class="card-title">When Belonging Becomes a Burden</h3><p class="card-desc">Conformity, groupthink, and the quiet erosion of individuality inside social groups. Revisiting Asch's experiments through a modern lens.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> September 2024 · Leila Nassir</div></article>
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Emotion</div><h3 class="card-title">The Surprising Science of Ambivalence</h3><p class="card-desc">Holding two opposing feelings at once isn't confusion — it's sophistication. Unpacking affective complexity and emotional resilience.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> August 2024 · Maya Chen</div></article>
+</div>
+<div style="text-align:center;margin-top:2rem"><a href="essays.html" class="btn btn-outline-dark">View All Essays <i class="fa-solid fa-arrow-right"></i></a></div>
+</div></section>
+
+<section class="section"><div class="section-inner">
+<h2 class="section-heading">Latest Essays</h2>
+<p class="section-subheading">Personal analysis meets psychological evidence.</p>
+<div class="cards-grid">
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Motivation</div><h3 class="card-title">Why We Stop Before We Start</h3><p class="card-desc">Procrastination is rarely laziness — it's often fear in disguise. The emotional roots of avoidance behavior.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> November 2024 · Leila Nassir</div></article>
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Relationships</div><h3 class="card-title">Attachment Styles and the Patterns We Repeat</h3><p class="card-desc">How early bonds shape the way we love, argue, and seek comfort in adulthood.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> October 2024 · Maya Chen</div></article>
+<article class="card"><div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Cognitive Biases</div><h3 class="card-title">The Stories We Tell Ourselves</h3><p class="card-desc">How narrative bias shapes memory, decision-making, and how we relate to others.</p><div class="card-meta"><i class="fa-regular fa-calendar-alt"></i> September 2024 · Leila Nassir</div></article>
+</div>
+<div style="text-align:center;margin-top:2rem"><a href="essays.html" class="btn btn-outline-dark">Read More Essays <i class="fa-solid fa-arrow-right"></i></a></div>
+</div></section>
+
+<section class="section-book-review"><div class="section-inner">
+<h2 class="section-heading-white">Book Reviews</h2>
+<p class="section-subheading-white">We read so you can decide — critical reviews of psychology's most talked-about titles.</p>
+<div class="book-review-card">
+<div class="book-icon-placeholder"><i class="fa-solid fa-book"></i></div>
+<div class="tag-white"><i class="fa-solid fa-star-half-stroke"></i> Book Review — Behavioral Psychology</div>
+<h3 class="book-title">Thinking, Fast and Slow</h3>
+<p class="book-author">Daniel Kahneman — Farrar, Straus and Giroux, 2011</p>
+<p class="book-desc">Kahneman introduces two systems of thinking: fast intuitive System 1 and slow deliberate System 2. Essential reading for anyone curious about why humans are so predictably irrational.</p>
+<div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span style="font-size:.8rem;color:rgba(250,247,242,.6);margin-left:.4rem;font-family:'Inter',sans-serif">4.5 / 5</span></div>
+<p class="themes-label">Key Themes</p>
+<ul class="themes-list"><li class="theme-pill">Cognitive Bias</li><li class="theme-pill">Decision-Making</li><li class="theme-pill">Heuristics</li><li class="theme-pill">Behavioral Economics</li></ul>
+<div style="text-align:center"><a href="book-reviews.html" class="btn btn-outline-white">All Book Reviews <i class="fa-solid fa-arrow-right"></i></a></div>
+</div></div></section>
+
+<section class="section"><div class="section-inner">
+<h2 class="section-heading">Student Research</h2>
+<p class="section-subheading">Original inquiries by our contributors — small scale, genuine curiosity.</p>
+<div class="research-card">
+<div class="card-tag"><i class="fa-solid fa-circle-dot"></i> Student Research — Social Psychology</div>
+<h3 class="research-title">Social Media Use and Self-Esteem in University Students</h3>
+<p class="research-question">"Does the frequency and type of social media platform used correlate with reported self-esteem levels among undergraduates aged 18–25?"</p>
+<p class="research-method"><strong>Methodology:</strong> Mixed-methods approach combining a 22-item online survey (adapted Rosenberg Self-Esteem Scale) with qualitative interviews (n=34).</p>
+<div class="badge-pills"><span class="badge badge-sage"><i class="fa-solid fa-chart-bar"></i> Quantitative Data</span><span class="badge badge-lavender"><i class="fa-regular fa-file-pdf"></i> PDF Available</span><span class="badge badge-terracotta"><i class="fa-solid fa-clipboard-list"></i> Survey-Based</span></div>
+<div style="text-align:center"><a href="research.html" class="btn btn-outline-dark">View All Research <i class="fa-solid fa-arrow-right"></i></a></div>
+</div></div></section>
+
+<section class="section-dear-mind"><div class="section-inner">
+<h2 class="section-heading-white">Dear Mind</h2>
+<p class="section-subheading-white">Anonymous questions about inner life — answered with psychology, empathy, and honesty.</p>
+<div class="dear-mind-grid">
+<div class="dear-mind-card">
+<div class="dear-mind-label"><i class="fa-solid fa-envelope-open-text"></i> Published Response — Identity</div>
+<blockquote class="dm-blockquote">"I feel like I'm performing a version of myself online that doesn't match who I am. Is that normal?"</blockquote>
+<p class="dm-interpretation"><strong>Psychological Interpretation:</strong> What you're describing is impression management — how we present different facets of ourselves depending on context. Online environments amplify this through curation.</p>
+<p class="dm-reflection">The question is whether your online self is an aspirational extension or a defensive shield. You're not fake — you're navigating identity in a complex landscape.</p>
+<p class="dm-citation">Goffman, E. (1959). <em>The Presentation of Self in Everyday Life.</em> Doubleday.</p>
+</div>
+<div class="dear-mind-card" style="text-align:center;display:flex;flex-direction:column;justify-content:center">
+<div class="dear-mind-label"><i class="fa-solid fa-pen-to-square"></i> Have a Question?</div>
+<p style="color:rgba(250,247,242,.85);margin-bottom:1.5rem;line-height:1.7">Submit your anonymous question and our team will explore it through a psychological lens. All submissions are completely anonymous.</p>
+<a href="dear-mind.html" class="btn btn-white-green" style="margin:0 auto"><i class="fa-solid fa-paper-plane"></i> Go to Dear Mind</a>
+</div></div></div></section>
+
+<section class="section"><div class="section-inner">
+<h2 class="section-heading" style="text-align:center;border-left:none;border-bottom:2px solid var(--border-warm);padding-left:0;padding-bottom:.75rem;margin-bottom:.5rem">Meet the Founders</h2>
+<p style="text-align:center;font-size:.88rem;color:var(--text-muted);margin-bottom:2.75rem">Two psychology students who believed writing about the mind could help others understand themselves.</p>
+<div class="founders-grid">
+<div class="founder-card"><div class="founder-avatar"><i class="fa-solid fa-user-pen"></i></div><div class="founder-role">Co-founder & Editor-in-Chief</div><h3 class="founder-name">Maya Chen</h3><p class="founder-bio">Third-year psychology student focused on developmental and social psychology. Believes the best psychology writing should feel like recognition, not instruction.</p></div>
+<div class="founder-card"><div class="founder-avatar"><i class="fa-solid fa-user-graduate"></i></div><div class="founder-role">Co-founder & Research Lead</div><h3 class="founder-name">Leila Nassir</h3><p class="founder-bio">Final-year psychology and cognitive science student. Passionate about bridging empirical findings with the questions people are asking about their inner lives.</p></div>
+</div>
+<div style="text-align:center;margin-top:2rem"><a href="about.html" class="btn btn-outline-dark">Meet the Team <i class="fa-solid fa-arrow-right"></i></a></div>
+</div></section>
+
+<section class="stats-bar"><div class="stats-inner">
+<div class="stat-item"><div class="stat-number">32</div><div class="stat-label">Articles Published</div></div>
+<div class="stat-item"><div class="stat-number">5</div><div class="stat-label">Research Projects</div></div>
+<div class="stat-item"><div class="stat-number">140<span>+</span></div><div class="stat-label">Reflections Shared</div></div>
+<div class="stat-item"><div class="stat-number">12<span>k</span></div><div class="stat-label">Readers Reached</div></div>
+</div></section>
+
+<footer><div class="footer-inner">
+<div class="footer-top">
+<div><div class="footer-logo">MINDSCAPE</div><p class="footer-desc">A student psychology publication exploring human behavior, emotions, identity, and relationships through research and honest reflection.</p></div>
+<div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li></ul></div>
+<div><div class="footer-col-title">Publication</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="dear-mind.html">Submit a Question</a></li><li><a href="#">Submission Guidelines</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+</div>
+<div class="footer-bottom"><span>© 2024 MINDSCAPE. Educational purposes only.</span><span style="display:flex;gap:1rem"><a href="#" style="color:rgba(250,247,242,.3)"><i class="fa-brands fa-instagram"></i></a><a href="#" style="color:rgba(250,247,242,.3)"><i class="fa-brands fa-x-twitter"></i></a><a href="#" style="color:rgba(250,247,242,.3)"><i class="fa-solid fa-rss"></i></a></span></div>
+</div></footer>
+
+<script>
+const hamburger=document.querySelector('.nav-hamburger'),mobileMenu=document.querySelector('.nav-mobile-menu'),hamburgerIcon=hamburger.querySelector('i');
+hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');hamburgerIcon.className=o?'fa-solid fa-xmark':'fa-solid fa-bars'});
+mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburgerIcon.className='fa-solid fa-bars'}));
+const searchBtn=document.querySelector('.nav-search-btn'),searchOverlay=document.querySelector('.search-overlay'),searchClose=document.querySelector('.search-overlay-close');
+searchBtn.addEventListener('click',()=>searchOverlay.classList.add('open'));
+searchClose.addEventListener('click',()=>searchOverlay.classList.remove('open'));
+searchOverlay.addEventListener('click',e=>{if(e.target===searchOverlay)searchOverlay.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')searchOverlay.classList.remove('open')});
+const statNumbers=document.querySelectorAll('.stat-number');
+new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){const e=n.target,t=e.textContent.match(/[\d]+/);if(t){const n=parseInt(t[0]),s=e.textContent.replace(/[\d]+/,''),r=setInterval(()=>{const c=Math.min((parseInt(e.textContent)||0)+n/40,n);e.innerHTML=Math.round(c)+(s?'<span>'+s.trim()+'</span>':'');if(c>=n)clearInterval(r)},30)}this.unobserve(e.target)}})}).observe(document.querySelector('.stats-bar'));
+const revealElements=document.querySelectorAll('.card,.founder-card,.book-review-card,.research-card,.dear-mind-card');
+const revealObserver=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){n.target.style.opacity='1';n.target.style.transform='translateY(0)';revealObserver.unobserve(n.target)}})},{threshold:.1});
+revealElements.forEach(e=>{e.style.opacity='0';e.style.transform='translateY(18px)';e.style.transition='opacity .5s ease, transform .5s ease';revealObserver.observe(e)});
+</script>
+</body>
+</html>

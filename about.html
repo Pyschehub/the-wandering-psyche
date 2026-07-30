@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — MINDSCAPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--bg-warm-paper:#f5f0e8;--bg-card:#faf7f2;--bg-nav:#f8f5ef;
+--text-primary:#2b2b28;--text-secondary:#5c5a51;--text-muted:#8a877c;--text-on-dark:#faf7f2;
+--accent-sage:#7d8a76;--accent-lavender:#9b8fa0;--accent-terracotta:#b8a08a;
+--border-warm:#e5ded3;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-warm-paper);color:var(--text-primary);font-size:16px;line-height:1.7}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+nav{background:var(--bg-nav);border-bottom:1px solid var(--border-warm);position:sticky;top:0;z-index:1000;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600;letter-spacing:.12em;color:var(--text-primary)}
+.nav-logo span{color:var(--accent-sage)}
+.nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text-secondary);padding:.45rem .75rem;border-radius:6px}
+.nav-links a:hover,.nav-links a.active{background:var(--border-warm);color:var(--text-primary)}
+.nav-hamburger{display:none;background:0 0;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;padding:.4rem}
+.nav-mobile-menu{display:none;background:var(--bg-nav);border-top:1px solid var(--border-warm);padding:1rem 2rem}
+.nav-mobile-menu.open{display:block}
+.nav-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.nav-mobile-menu a{display:block;font-size:.9rem;font-weight:500;color:var(--text-secondary);padding:.6rem .5rem;border-radius:6px}
+.page-header{text-align:center;padding:4rem 2rem 2rem}
+.page-header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin-bottom:.5rem}
+.page-subtitle{font-size:1rem;color:var(--text-muted);max-width:500px;margin:0 auto}
+.section{padding:0 2rem 4.5rem}
+.section-inner{max-width:800px;margin:0 auto}
+.mission-text{font-size:.95rem;color:var(--text-secondary);line-height:1.8;margin-bottom:2rem}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:700px;margin:0 auto}
+.founder-card{background:var(--bg-card);border:1px solid var(--border-warm);border-radius:10px;padding:2rem;text-align:center;box-shadow:0 2px 12px rgba(43,43,40,.06)}
+.founder-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,rgba(155,143,160,.25),rgba(125,138,118,.2));border:2px solid var(--border-warm);color:var(--accent-lavender)}
+.founder-role{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-sage);margin-bottom:.4rem}
+.founder-name{font-size:1.3rem;font-weight:600;margin-bottom:.75rem}
+.founder-bio{font-size:.86rem;color:var(--text-secondary);line-height:1.7}
+.contact-section{text-align:center;margin-top:3rem;padding:2rem;background:var(--bg-card);border-radius:10px;border:1px solid var(--border-warm)}
+footer{background:#1e1e1b;padding:3.5rem 2rem 2rem;color:rgba(250,247,242,.65);margin-top:2rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,247,242,.08);margin-bottom:1.75rem}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;color:var(--text-on-dark);margin-bottom:.75rem}
+.footer-desc{font-size:.85rem;line-height:1.7;color:rgba(250,247,242,.5)}
+.footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.88rem;color:rgba(250,247,242,.55)}
+.footer-links a:hover{color:var(--text-on-dark)}
+.footer-bottom{font-size:.78rem;color:rgba(250,247,242,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:block}.footer-top{grid-template-columns:1fr 1fr}.footer-top>*:first-child{grid-column:1/-1}.founders-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo">MIND<span>SCAPE</span></a>
+<ul class="nav-links">
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html">Editorial</a></li>
+<li><a href="book-reviews.html">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html">Dear Mind</a></li>
+<li><a href="about.html" class="active">About</a></li>
+</ul>
+<div class="nav-right"><button class="nav-hamburger"><i class="fa-solid fa-bars"></i></button></div>
+</div></nav>
+<div class="nav-mobile-menu"><ul><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li><li><a href="about.html">About</a></li></ul></div>
+
+<div class="page-header"><h1>About MINDSCAPE</h1><p class="page-subtitle">A student-led psychology publication for curious minds.</p></div>
+
+<section class="section"><div class="section-inner">
+<p class="mission-text"><strong>MINDSCAPE</strong> was created by two psychology students who believed that writing about the mind could help others understand themselves. Our mission is to explore human behavior, emotions, identity, and relationships through evidence-based essays, original research, book reviews, and honest reflection. We believe psychology should feel accessible — like recognition, not instruction — and that the best insights come from asking genuine questions about everyday experience.</p>
+<p class="mission-text">We publish work that bridges the gap between academic psychology and the real questions young adults are asking about their inner lives. Whether through our research column, our anonymous Dear Mind advice series, or our long-form essays, every piece is written with intellectual curiosity, empathy, and a commitment to psychological rigor.</p>
+
+<div class="founders-grid">
+<div class="founder-card"><div class="founder-avatar"><i class="fa-solid fa-user-pen"></i></div><div class="founder-role">Co-founder & Editor-in-Chief</div><h3 class="founder-name">Maya Chen</h3><p class="founder-bio">Third-year psychology student with a focus on developmental and social psychology. Maya started MINDSCAPE out of frustration with academic writing that felt inaccessible. She writes primarily about identity, emotion, and the social self — and believes the best psychology writing should feel like recognition, not instruction.</p></div>
+<div class="founder-card"><div class="founder-avatar"><i class="fa-solid fa-user-graduate"></i></div><div class="founder-role">Co-founder & Research Lead</div><h3 class="founder-name">Leila Nassir</h3><p class="founder-bio">Final-year psychology and cognitive science student specializing in behavioral research and mental health communication. Leila leads MINDSCAPE's research column and oversees the Dear Mind column. She's passionate about bridging the gap between empirical findings and the questions real people are asking about their inner lives.</p></div>
+</div>
+
+<div class="contact-section"><h3 style="margin-bottom:.5rem">Get in Touch</h3><p style="color:var(--text-secondary);font-size:.9rem">For collaborations, submissions, or questions, reach out to us at <strong>hello@mindscapepublication.com</strong></p></div>
+</div></section>
+
+<footer><div class="footer-inner"><div class="footer-top">
+<div><div class="footer-logo">MINDSCAPE</div><p class="footer-desc">A student psychology publication exploring human behavior and modern life.</p></div>
+<div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li></ul></div>
+<div><div class="footer-col-title">Publication</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="dear-mind.html">Submit a Question</a></li><li><a href="#">Submission Guidelines</a></li></ul></div>
+</div><div class="footer-bottom"><span>© 2024 MINDSCAPE</span><span><a href="#"><i class="fa-brands fa-instagram"></i></a> <a href="#"><i class="fa-brands fa-x-twitter"></i></a></span></div></div></footer>
+
+<script>
+const h=document.querySelector('.nav-hamburger'),m=document.querySelector('.nav-mobile-menu'),i=h.querySelector('i');
+h.addEventListener('click',()=>{const o=m.classList.toggle('open');i.className=o?'fa-solid fa-xmark':'fa-solid fa-bars'});
+m.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{m.classList.remove('open');i.className='fa-solid fa-bars'}));
+</script>
+</body>
+</html>

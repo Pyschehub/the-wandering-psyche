@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dear Mind — MINDSCAPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--section-dear-mind-bg:#7d9b5e;--section-dear-mind-card:#8ba86d;--text-on-dark:#faf7f2;
+--border-on-dark:rgba(250,247,242,0.2);--bg-nav:#f8f5ef;--text-primary:#2b2b28;--text-secondary:#5c5a51;--accent-sage:#7d8a76;--border-warm:#e5ded3;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--section-dear-mind-bg);color:var(--text-on-dark);font-size:16px;line-height:1.7}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+nav{background:var(--bg-nav);border-bottom:1px solid var(--border-warm);position:sticky;top:0;z-index:1000;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600;letter-spacing:.12em;color:var(--text-primary)}
+.nav-logo span{color:var(--accent-sage)}
+.nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text-secondary);padding:.45rem .75rem;border-radius:6px}
+.nav-links a:hover,.nav-links a.active{background:var(--border-warm);color:var(--text-primary)}
+.nav-hamburger{display:none;background:0 0;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;padding:.4rem}
+.nav-mobile-menu{display:none;background:var(--bg-nav);border-top:1px solid var(--border-warm);padding:1rem 2rem}
+.nav-mobile-menu.open{display:block}
+.nav-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.nav-mobile-menu a{display:block;font-size:.9rem;font-weight:500;color:var(--text-secondary);padding:.6rem .5rem;border-radius:6px}
+.page-header{text-align:center;padding:4rem 2rem 2rem}
+.page-header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin-bottom:.5rem}
+.page-subtitle{font-size:1rem;color:rgba(250,247,242,.75);max-width:500px;margin:0 auto}
+.section{padding:0 2rem 4.5rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.dear-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem}
+.dear-card{background:var(--section-dear-mind-card);border:1px solid var(--border-on-dark);border-radius:10px;padding:1.75rem;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.dear-label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.65);margin-bottom:.75rem}
+.dear-blockquote{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-style:italic;border-left:3px solid rgba(250,247,242,.4);padding-left:1rem;margin-bottom:1rem;line-height:1.6}
+.dear-card p{font-size:.85rem;color:rgba(250,247,242,.85);line-height:1.75;margin-bottom:.75rem}
+.dear-citation{font-size:.73rem;color:rgba(250,247,242,.5);font-style:italic}
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:.8rem;font-weight:600;color:rgba(250,247,242,.8);margin-bottom:.4rem}
+.form-control{width:100%;background:rgba(250,247,242,.12);border:1px solid rgba(250,247,242,.25);border-radius:8px;color:var(--text-on-dark);font-family:'Inter',system-ui,sans-serif;font-size:.875rem;padding:.7rem .9rem;outline:none;transition:border-color .2s}
+.form-control:focus{border-color:rgba(250,247,242,.5);background:rgba(250,247,242,.18)}
+.form-control::placeholder{color:rgba(250,247,242,.35)}
+textarea.form-control{min-height:130px;resize:vertical}
+.form-control option{background:var(--section-dear-mind-bg);color:var(--text-on-dark)}
+.btn-white-green{display:block;width:100%;padding:.75rem;border-radius:28px;background:var(--text-on-dark);color:var(--section-dear-mind-bg);border:none;font-weight:600;font-size:.85rem;cursor:pointer;transition:background .2s;text-align:center}
+.btn-white-green:hover{background:#edeade}
+.disclaimer-box{background:rgba(43,43,40,.2);border:1px solid rgba(250,247,242,.15);border-radius:8px;padding:.9rem 1rem;margin-top:1rem;font-size:.76rem;color:rgba(250,247,242,.6);display:flex;gap:.5rem;align-items:flex-start}
+footer{background:#1e1e1b;padding:3.5rem 2rem 2rem;color:rgba(250,247,242,.65);margin-top:2rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,247,242,.08);margin-bottom:1.75rem}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;color:var(--text-on-dark);margin-bottom:.75rem}
+.footer-desc{font-size:.85rem;line-height:1.7;color:rgba(250,247,242,.5)}
+.footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.88rem;color:rgba(250,247,242,.55)}
+.footer-links a:hover{color:var(--text-on-dark)}
+.footer-bottom{font-size:.78rem;color:rgba(250,247,242,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:block}.footer-top{grid-template-columns:1fr 1fr}.footer-top>*:first-child{grid-column:1/-1}.dear-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo">MIND<span>SCAPE</span></a>
+<ul class="nav-links">
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html">Editorial</a></li>
+<li><a href="book-reviews.html">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html" class="active">Dear Mind</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+<div class="nav-right"><button class="nav-hamburger"><i class="fa-solid fa-bars"></i></button></div>
+</div></nav>
+<div class="nav-mobile-menu"><ul><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li><li><a href="about.html">About</a></li></ul></div>
+
+<div class="page-header"><h1>Dear Mind</h1><p class="page-subtitle">Anonymous questions about inner life — answered with psychology, empathy, and honesty.</p></div>
+
+<section class="section"><div class="section-inner"><div class="dear-grid">
+<div>
+<div class="dear-card" style="margin-bottom:1.5rem"><div class="dear-label"><i class="fa-solid fa-envelope-open-text"></i> Published — Identity</div><blockquote class="dear-blockquote">"I feel like I'm performing a version of myself online that doesn't match who I am. Is that normal?"</blockquote><p><strong>Interpretation:</strong> What you're describing is impression management — how we present different facets of ourselves depending on context. Online environments amplify this through curation, but this isn't inherently deceptive.</p><p>The question is whether your online self is an aspirational extension or a defensive shield. You're not fake — you're navigating identity in a complex landscape.</p><p class="dear-citation">Goffman, E. (1959). <em>The Presentation of Self in Everyday Life.</em> Doubleday.</p></div>
+<div class="dear-card"><div class="dear-label"><i class="fa-solid fa-envelope-open-text"></i> Published — Relationships</div><blockquote class="dear-blockquote">"Why do I keep ending up in the same kind of relationship dynamic even when I try to choose differently?"</blockquote><p><strong>Interpretation:</strong> Attachment theory suggests that our earliest bonds create internal working models that guide our expectations in relationships. These patterns operate beneath conscious awareness, pulling us toward familiar dynamics.</p><p>Recognizing the pattern is the first step. The second is understanding what need the familiar dynamic fulfills, even if it's not ultimately healthy.</p><p class="dear-citation">Bowlby, J. (1969). <em>Attachment and Loss.</em> Basic Books.</p></div>
+</div>
+<div>
+<div class="dear-card"><div class="dear-label"><i class="fa-solid fa-pen-to-square"></i> Submit Your Question</div><p style="color:rgba(250,247,242,.8);margin-bottom:1.25rem">Your identity is never stored. All submissions are completely anonymous.</p>
+<form action="https://formspree.io/f/mbdnedvz" method="POST">
+<div class="form-group"><label class="form-label" for="category">Category</label><select class="form-control" id="category" name="category" required><option value="" disabled selected>Select a category...</option><option value="identity">Identity</option><option value="relationships">Relationships</option><option value="motivation">Motivation</option><option value="academic-pressure">Academic Pressure</option><option value="self-perception">Self-Perception</option><option value="modern-life">Modern Life</option><option value="future-anxiety">Future Anxiety</option></select></div>
+<div class="form-group"><label class="form-label" for="question">Your Question</label><textarea class="form-control" id="question" name="question" placeholder="Write your question here. This will be published anonymously if selected..." required></textarea></div>
+<button type="submit" class="btn-white-green"><i class="fa-solid fa-paper-plane"></i> Submit Anonymously</button>
+</form>
+<div class="disclaimer-box"><i class="fa-solid fa-circle-info"></i><span><strong style="color:rgba(250,247,242,.75)">Educational purposes only.</strong> Dear Mind offers psychological insight and perspective. It is not a substitute for professional mental health support or therapy. If you are in distress, please reach out to a qualified counselor.</span></div>
+</div></div>
+</div></div></section>
+
+<footer><div class="footer-inner"><div class="footer-top">
+<div><div class="footer-logo">MINDSCAPE</div><p class="footer-desc">A student psychology publication exploring human behavior and modern life.</p></div>
+<div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li></ul></div>
+<div><div class="footer-col-title">Publication</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="dear-mind.html">Submit a Question</a></li></ul></div>
+</div><div class="footer-bottom"><span>© 2024 MINDSCAPE</span><span><a href="#"><i class="fa-brands fa-instagram"></i></a> <a href="#"><i class="fa-brands fa-x-twitter"></i></a></span></div></div></footer>
+
+<script>
+const h=document.querySelector('.nav-hamburger'),m=document.querySelector('.nav-mobile-menu'),i=h.querySelector('i');
+h.addEventListener('click',()=>{const o=m.classList.toggle('open');i.className=o?'fa-solid fa-xmark':'fa-solid fa-bars'});
+m.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{m.classList.remove('open');i.className='fa-solid fa-bars'}));
+</script>
+</body>
+</html>

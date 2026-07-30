@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Reviews — MINDSCAPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--section-book-review-bg:#5c5438;--section-book-review-card:#6b6346;--section-dear-mind-bg:#7d9b5e;
+--text-on-dark:#faf7f2;--accent-gold:#c4a97d;--accent-sage:#7d8a76;
+--border-on-dark:rgba(250,247,242,0.2);--bg-nav:#f8f5ef;--text-primary:#2b2b28;--text-secondary:#5c5a51;--border-warm:#e5ded3;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--section-book-review-bg);color:var(--text-on-dark);font-size:16px;line-height:1.7}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+nav{background:var(--bg-nav);border-bottom:1px solid var(--border-warm);position:sticky;top:0;z-index:1000;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:600;letter-spacing:.12em;color:var(--text-primary)}
+.nav-logo span{color:var(--accent-sage)}
+.nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text-secondary);padding:.45rem .75rem;border-radius:6px}
+.nav-links a:hover,.nav-links a.active{background:var(--border-warm);color:var(--text-primary)}
+.nav-hamburger{display:none;background:0 0;border:none;color:var(--text-secondary);font-size:1.2rem;cursor:pointer;padding:.4rem}
+.nav-mobile-menu{display:none;background:var(--bg-nav);border-top:1px solid var(--border-warm);padding:1rem 2rem}
+.nav-mobile-menu.open{display:block}
+.nav-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.nav-mobile-menu a{display:block;font-size:.9rem;font-weight:500;color:var(--text-secondary);padding:.6rem .5rem;border-radius:6px}
+.page-header{text-align:center;padding:4rem 2rem 2rem}
+.page-header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin-bottom:.5rem;color:var(--text-on-dark)}
+.page-subtitle{font-size:1rem;color:rgba(250,247,242,.7);max-width:500px;margin:0 auto}
+.section{padding:0 2rem 4.5rem}
+.section-inner{max-width:1000px;margin:0 auto}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.review-card{background:var(--section-book-review-card);border:1px solid var(--border-on-dark);border-radius:10px;padding:1.75rem;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.book-icon-sm{width:50px;height:65px;background:rgba(196,169,125,.25);border:1px solid rgba(196,169,125,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent-gold);margin-bottom:1rem}
+.review-card h3{font-size:1.3rem;font-weight:600;margin-bottom:.25rem}
+.review-author{font-size:.85rem;color:rgba(250,247,242,.6);font-style:italic;margin-bottom:.75rem}
+.review-desc{font-size:.85rem;color:rgba(250,247,242,.8);line-height:1.7;margin-bottom:1rem}
+.stars{color:var(--accent-gold);margin-bottom:.75rem}
+.theme-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;list-style:none}
+.theme-pill{font-size:.7rem;padding:.25rem .7rem;border-radius:15px;background:rgba(196,169,125,.15);border:1px solid rgba(196,169,125,.3)}
+.btn-outline-white{display:inline-block;padding:.5rem 1.2rem;border-radius:20px;border:1px solid var(--text-on-dark);color:var(--text-on-dark);font-size:.8rem;font-weight:500;transition:background .2s}
+.btn-outline-white:hover{background:rgba(250,247,242,.12)}
+footer{background:#1e1e1b;padding:3.5rem 2rem 2rem;color:rgba(250,247,242,.65);margin-top:2rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,247,242,.08);margin-bottom:1.75rem}
+.footer-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:600;letter-spacing:.12em;color:var(--text-on-dark);margin-bottom:.75rem}
+.footer-desc{font-size:.85rem;line-height:1.7;color:rgba(250,247,242,.5)}
+.footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,247,242,.4);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{font-size:.88rem;color:rgba(250,247,242,.55)}
+.footer-links a:hover{color:var(--text-on-dark)}
+.footer-bottom{font-size:.78rem;color:rgba(250,247,242,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:900px){.nav-links{display:none}.nav-hamburger{display:block}.footer-top{grid-template-columns:1fr 1fr}.footer-top>*:first-child{grid-column:1/-1}}
+@media(max-width:640px){.review-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo">MIND<span>SCAPE</span></a>
+<ul class="nav-links">
+<li><a href="essays.html">Essays</a></li>
+<li><a href="editorial.html">Editorial</a></li>
+<li><a href="book-reviews.html" class="active">Book Reviews</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="dear-mind.html">Dear Mind</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+<div class="nav-right"><button class="nav-hamburger"><i class="fa-solid fa-bars"></i></button></div>
+</div></nav>
+<div class="nav-mobile-menu"><ul><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li><li><a href="about.html">About</a></li></ul></div>
+
+<div class="page-header"><h1>Book Reviews</h1><p class="page-subtitle">Critical, honest reviews of psychology's most important books.</p></div>
+
+<section class="section"><div class="section-inner"><div class="review-grid">
+<div class="review-card"><div class="book-icon-sm"><i class="fa-solid fa-book"></i></div><h3>Thinking, Fast and Slow</h3><p class="review-author">Daniel Kahneman</p><p class="review-desc">Kahneman's landmark work on dual-process theory remains essential reading for anyone interested in cognitive biases and decision-making.</p><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 4.5/5</div><ul class="theme-pills"><li class="theme-pill">Cognitive Bias</li><li class="theme-pill">Decision-Making</li><li class="theme-pill">Heuristics</li></ul><a href="#" class="btn-outline-white">Read Full Review</a></div>
+<div class="review-card"><div class="book-icon-sm"><i class="fa-solid fa-book"></i></div><h3>The Body Keeps the Score</h3><p class="review-author">Bessel van der Kolk</p><p class="review-desc">A powerful exploration of how trauma reshapes the body and brain, and what emerging therapies offer for healing.</p><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 5/5</div><ul class="theme-pills"><li class="theme-pill">Trauma</li><li class="theme-pill">Neuroscience</li><li class="theme-pill">Therapy</li></ul><a href="#" class="btn-outline-white">Read Full Review</a></div>
+<div class="review-card"><div class="book-icon-sm"><i class="fa-solid fa-book"></i></div><h3>Man's Search for Meaning</h3><p class="review-author">Viktor Frankl</p><p class="review-desc">Part memoir, part psychological theory — Frankl's account of finding purpose in suffering remains deeply influential.</p><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 5/5</div><ul class="theme-pills"><li class="theme-pill">Existential Psychology</li><li class="theme-pill">Resilience</li><li class="theme-pill">Meaning</li></ul><a href="#" class="btn-outline-white">Read Full Review</a></div>
+<div class="review-card"><div class="book-icon-sm"><i class="fa-solid fa-book"></i></div><h3>Atomic Habits</h3><p class="review-author">James Clear</p><p class="review-desc">A practical, research-backed guide to building better habits and breaking bad ones through small, consistent changes.</p><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 4/5</div><ul class="theme-pills"><li class="theme-pill">Habit Formation</li><li class="theme-pill">Behavior Change</li><li class="theme-pill">Self-Improvement</li></ul><a href="#" class="btn-outline-white">Read Full Review</a></div>
+</div></div></section>
+
+<footer><div class="footer-inner"><div class="footer-top">
+<div><div class="footer-logo">MINDSCAPE</div><p class="footer-desc">A student psychology publication exploring human behavior and modern life.</p></div>
+<div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="essays.html">Essays</a></li><li><a href="editorial.html">Editorial</a></li><li><a href="book-reviews.html">Book Reviews</a></li><li><a href="research.html">Research</a></li><li><a href="dear-mind.html">Dear Mind</a></li></ul></div>
+<div><div class="footer-col-title">Publication</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="dear-mind.html">Submit a Question</a></li></ul></div>
+</div><div class="footer-bottom"><span>© 2024 MINDSCAPE</span><span><a href="#"><i class="fa-brands fa-instagram"></i></a> <a href="#"><i class="fa-brands fa-x-twitter"></i></a></span></div></div></footer>
+
+<script>
+const h=document.querySelector('.nav-hamburger'),m=document.querySelector('.nav-mobile-menu'),i=h.querySelector('i');
+h.addEventListener('click',()=>{const o=m.classList.toggle('open');i.className=o?'fa-solid fa-xmark':'fa-solid fa-bars'});
+m.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{m.classList.remove('open');i.className='fa-solid fa-bars'}));
+</script>
+</body>
+</html>
