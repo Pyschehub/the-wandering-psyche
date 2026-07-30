@@ -272,6 +272,7 @@ new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){const e=n.target
 const revealElements=document.querySelectorAll('.card,.founder-card,.book-review-card,.research-card,.dear-mind-card');
 const revealObserver=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){n.target.style.opacity='1';n.target.style.transform='translateY(0)';revealObserver.unobserve(n.target)}})},{threshold:.1});
 revealElements.forEach(e=>{e.style.opacity='0';e.style.transform='translateY(18px)';e.style.transition='opacity .5s ease, transform .5s ease';revealObserver.observe(e)});
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </script>
 </body>
 </html>
