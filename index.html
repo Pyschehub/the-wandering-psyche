@@ -273,6 +273,21 @@ const revealElements=document.querySelectorAll('.card,.founder-card,.book-review
 const revealObserver=new IntersectionObserver(e=>{e.forEach(n=>{if(n.isIntersecting){n.target.style.opacity='1';n.target.style.transform='translateY(0)';revealObserver.unobserve(n.target)}})},{threshold:.1});
 revealElements.forEach(e=>{e.style.opacity='0';e.style.transform='translateY(18px)';e.style.transition='opacity .5s ease, transform .5s ease';revealObserver.observe(e)});
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (window.location.hash.includes("recovery_token")) {
+        window.netlifyIdentity.open();
+      }
+
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/";
+        });
+      }
+    });
+  }
 </script>
 </body>
 </html>
